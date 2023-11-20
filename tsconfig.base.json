@@ -1,20 +1,26 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2020", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {}
-  },
-  "exclude": ["node_modules", "tmp"]
+     "compileOnSave": false,
+     "compilerOptions": {
+          "rootDir": ".",
+          "sourceMap": true,
+          "declaration": false,
+          "moduleResolution": "node",
+          "emitDecoratorMetadata": true,
+          "experimentalDecorators": true,
+          "importHelpers": true,
+          "target": "es2015",
+          "module": "esnext",
+          "lib": ["es2020", "dom"],
+          "skipLibCheck": true,
+          "skipDefaultLibCheck": true,
+          "baseUrl": ".",
+          "paths": {
+               "@operations/fedex-auth": ["libs/fedex-app/features/fedex-auth/src/index.ts"],
+               "@operations/fedex-data-access": ["libs/fedex-app/fedex-data-access/src/index.ts"],
+               "@operations/tailwind-presets": ["libs/shared/tailwind-presets/src/index.ts"],
+               "@operations/util-common": ["libs/shared/util-common/src/index.ts"],
+               "@operations/util-environments": ["libs/shared/util-environments/src/index.ts"]
+          }
+     },
+     "exclude": ["node_modules", "tmp"]
 }

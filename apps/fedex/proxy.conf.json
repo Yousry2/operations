@@ -1,0 +1,6 @@
+{
+     "/https://demo-api.now.sh": {
+          "target": "http://localhost:3333",
+          "secure": false
+     }
+}

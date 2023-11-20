@@ -1,4 +1,4 @@
-# Fedex / SignUp App
+ Fedex / SignUp App
 
 
 <a alt="Fedex logo" href="https://yousry2.github.io/operations" target="_blank" rel="noreferrer"><img src="https://yousry2.github.io/operations/screenshot.jpg" width="800"></a>
@@ -81,5 +81,3 @@ npm run test
 4- tailwindcss/form plugin
 
 5- jest
-
-

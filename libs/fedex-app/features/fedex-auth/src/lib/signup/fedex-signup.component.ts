@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import {
      FormControl,
      FormGroup,
@@ -9,7 +9,8 @@ import {
      Validators,
 } from '@angular/forms';
 import { FedexAuthApiService, UserSignup } from '@operations/fedex-data-access';
-import { FormGroupType, doesNotContain, updateAndRevalidate } from '@operations/util-common';
+import { FormGroupType, ondestroy$, doesNotContain, updateAndRevalidate } from '@operations/util-common';
+import { takeUntil } from 'rxjs';
 
 /**
  * SignUpForm is a type that defines the main form attributes included in the signup form
@@ -45,6 +46,8 @@ export class FedexSignupComponent {
      formBuilder: NonNullableFormBuilder = inject(NonNullableFormBuilder);
      signUpForm: FormGroup<SignUpForm> = this.createSignUpForm();
      submitted = false;
+     isLoading = signal<boolean>(false);
+     destroy$ = ondestroy$();
 
      createSignUpForm(): FormGroup {
           return this.formBuilder.group<SignUpForm>(
@@ -81,14 +84,19 @@ export class FedexSignupComponent {
           this.signUpForm.controls.password.updateValueAndValidity();
           this.submitted = true;
           if (this.signUpForm.valid) {
-               this.signUpForm.value;
+               this.isLoading.set(true);
                this.fedexAuthApiService
                     .signup({
                          firstName: this.signUpForm.value.firstName!,
                          lastName: this.signUpForm.value.lastName!,
                          email: this.signUpForm.value.email!,
                     })
-                    .subscribe();
+                    .pipe(takeUntil(this.destroy$))
+                    .subscribe({
+                         next: (userCreated) => console.log(userCreated),
+                         error: (error) => console.log(error),
+                         complete: () => this.isLoading.set(false),
+                    });
           }
      }
 

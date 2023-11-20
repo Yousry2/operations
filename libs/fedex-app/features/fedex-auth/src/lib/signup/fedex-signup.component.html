@@ -13,11 +13,14 @@
           <div class="mt-4">
                <div class="flex justify-between space-x-7">
                     <label for="email">Email Address</label>
-                    @if (f.email.invalid && (f.email.touched || submitted)) { @if (f.email.errors?.required) {
-                    <span class="text-red-500"> Email is Required</span>
-                    } @else if (f.email.errors?.email) {
-                    <span class="text-red-500"> Please Enter a valid email </span>
-                    } }
+                    @if (f.email.invalid && (f.email.touched || submitted)) {
+                    <span
+                         class="text-red-500"
+                         test-id="fedex-auth-signup-email-input-notValid"
+                         >@if (f.email.errors?.required) { Email is Required } @else if (f.email.errors?.email) { Please
+                         Enter a valid email }
+                    </span>
+                    }
                </div>
                <div
                     class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-500"
@@ -32,6 +35,7 @@
 
                     <input
                          type="text"
+                         test-id="fedex-auth-signup-email-input"
                          [formControl]="f.email"
                          name="email"
                          id="email"
@@ -44,7 +48,10 @@
                <div class="flex justify-between space-x-8">
                     <label for="password">Password</label>
                     @if (f.password.invalid && (f.password.touched || submitted)) {
-                    <span class="text-red-500 text-right">
+                    <span
+                         class="text-red-500 text-right"
+                         test-id="fedex-auth-signup-password-input-notValid"
+                    >
                          @if (f.password.errors?.required) { Password is Required } @else if (submitted &&
                          (f.password.errors?.pattern || f.password.errors?.minlength)) { Password has to be at least 8
                          characters and contains upper and lower case } @else if (submitted &&
@@ -65,6 +72,7 @@
 
                     <input
                          type="password"
+                         test-id="fedex-auth-signup-password-input"
                          [formControl]="f.password"
                          name="password"
                          id="password"
@@ -90,9 +98,14 @@
                     <div class="flex justify-between space-x-8">
                          <label for="firstName">First Name</label>
 
-                         <span class="text-red-500 text-right">
-                              @if ( (submitted || f.firstName.touched ) && f.firstName.errors?.required) { Required }
+                         @if((submitted || f.firstName.touched ) && f.firstName.errors?.required) {
+                         <span
+                              class="text-red-500 text-right"
+                              test-id="fedex-auth-signup-firstName-input-required"
+                         >
+                              Required
                          </span>
+                         }
                     </div>
                     <div
                          class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-300"
@@ -108,6 +121,7 @@
                          <input
                               type="firstName"
                               value="test"
+                              test-id="fedex-auth-signup-firstName-input"
                               [formControl]="f.firstName"
                               name="firstName"
                               id="firstName"
@@ -120,9 +134,14 @@
                <span>
                     <div class="flex justify-between space-x-8">
                          <label for="lastName">Last Name</label>
-                         <span class="text-red-500 text-right">
-                              @if (( submitted || f.lastName.touched) && f.lastName.errors?.required) { Required }
-                         </span>
+
+                         @if (( submitted || f.lastName.touched) && f.lastName.errors?.required) {
+                         <span
+                              class="text-red-500 text-right"
+                              test-id="fedex-auth-signup-lastName-input-required"
+                         >
+                              Required </span
+                         >}
                     </div>
                     <div
                          class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-500"
@@ -138,6 +157,7 @@
                          <input
                               type="lastName"
                               [formControl]="f.lastName"
+                              test-id="fedex-auth-signup-lastName-input"
                               name="lastName"
                               id="lastName"
                               placeholder="Enter your name"
@@ -154,6 +174,7 @@
                <div class="flex items-center">
                     <input
                          type="checkbox"
+                         test-id="fedex-auth-signup-termsAndConditions-input"
                          [formControl]="f.termsAndConditions"
                          class="w-5 h-5 rounded bg-white text-purple-500 border border-gray-400 focus:outline-none focus:ring-purple-300"
                          [ngClass]="{
@@ -181,6 +202,8 @@
      <div class="my-4">
           <button
                type="submit"
+               [disabled]="isLoading()"
+               test-id="fedex-auth-signup-submit-button"
                class="py-4 px-8 w-full text-white bg-orange-500 rounded-lg shadow-lg disabled:opacity-50 opacity-90 hover:opacity-100 focus:ring-8 focus:ring-red-100 focus:outline-none"
           >
                Sign up

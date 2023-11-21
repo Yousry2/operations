@@ -93,7 +93,7 @@ export class FedexSignupComponent {
                     })
                     .pipe(takeUntil(this.destroy$))
                     .subscribe({
-                         next: (userCreated) => console.log(userCreated),
+                         next: (userCreated) => console.debug(userCreated),
                          error: (error) => console.log(error),
                          complete: () => this.isLoading.set(false),
                     });

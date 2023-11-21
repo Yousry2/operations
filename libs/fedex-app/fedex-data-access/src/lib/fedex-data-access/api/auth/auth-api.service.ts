@@ -11,6 +11,6 @@ export class FedexAuthApiService {
      http = inject(HttpClient);
      // eslint-disable-next-line @typescript-eslint/no-explicit-any
      signup(user: UserSignup): Observable<any> {
-          return this.http.post(SIGNUP_URL, { user });
+          return this.http.post<UserSignup>(SIGNUP_URL, { user });
      }
 }

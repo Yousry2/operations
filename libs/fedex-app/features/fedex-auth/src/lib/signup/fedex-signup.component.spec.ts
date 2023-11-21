@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FedexSignupComponent } from './fedex-signup.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
 
 const getElement = (fixture: ComponentFixture<FedexSignupComponent>, elementTestId: string) => {
-     console.log({ asas: `[test-id="fedex-auth-signup-${elementTestId}"]` });
      return fixture.debugElement.query(By.css(`[test-id="fedex-auth-signup-${elementTestId}"]`));
 };
 
@@ -45,6 +44,7 @@ const submit_button = (fixture: ComponentFixture<FedexSignupComponent>) => {
 describe('FedexSignupComponent', () => {
      let component: FedexSignupComponent;
      let fixture: ComponentFixture<FedexSignupComponent>;
+     let httpTestingController: HttpTestingController;
 
      beforeEach(async () => {
           await TestBed.configureTestingModule({
@@ -53,6 +53,7 @@ describe('FedexSignupComponent', () => {
 
           fixture = TestBed.createComponent(FedexSignupComponent);
           component = fixture.componentInstance;
+          httpTestingController = TestBed.inject(HttpTestingController);
           fixture.detectChanges();
      });
 
@@ -142,6 +143,24 @@ describe('FedexSignupComponent', () => {
           password_input(fixture).nativeElement.value = 'Test12345';
           fixture.whenStable().then(() => {
                expect(password_input_notValid(fixture)).toBeFalsy();
+          });
+     });
+
+     it('should submit signup form correctly', () => {
+          password_input(fixture).nativeElement.value = 'Password123';
+          email_input(fixture).nativeElement.value = 'test@test.com';
+          firstName_input(fixture).nativeElement.value = 'test';
+          lastName_input(fixture).nativeElement.value = 'test';
+          termsAndConditions_input(fixture).nativeElement.value = true;
+          submit_button(fixture).nativeElement.click();
+          fixture.detectChanges();
+          fixture.whenStable().then(() => {
+               const req = httpTestingController.expectOne('/users');
+               const req2 = httpTestingController.expectOne('/user111111111');
+               expect(req.request.method).toEqual('POST');
+               expect(req.request.body).toEqual({ firstName: 'test', lastName: 'test', email: 'test@test.com' });
+               req.flush({});
+               httpTestingController.verify();
           });
      });
 });

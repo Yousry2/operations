@@ -1,4 +1,4 @@
-# Operations / Fedex / SignUp App
+# Fedex / SignUp App
 
 
 <a alt="Fedex logo" href="https://yousry2.github.io/operations" target="_blank" rel="noreferrer"><img src="https://yousry2.github.io/operations/screenshot.jpg" width="800"></a>
@@ -8,7 +8,7 @@
 
 ## ✨ ** [Check Live Demo](https://yousry2.github.io/operations/).✨ **
 
-Please notice this demo is published on static github pages so in order to refresh the app please navigate the root page "https://yousry2.github.io/operations" and DON'T use the signup url https://yousry2.github.io/operations/auth/signup/
+Please notice this demo is published on static github pages so in order to refresh the app please **Always** navigate the root page https://yousry2.github.io/operations and **DON'T** use the signup url https://yousry2.github.io/operations/auth/signup/
 
 
 
@@ -43,17 +43,17 @@ nx graph
 
 The application consists of the following applications/libraries :
 
-1- Fedex               : Scaffold application which will import all libraries features along with their dependencies and integrate them 
+**1- Fedex**               : Scaffold application which will import all libraries features along with their dependencies and integrate them 
 
-2- Fedex-Auth          : Feature library that contains all pages/components related to the authorization module
+**2- Fedex-Auth**          : Feature library that contains all pages/components related to the authorization module
 
-3- Fedex-Data-Acccess  : Services Library will handle all domain models, api services
+**3- Fedex-Data-Acccess**  : Services Library will handle all domain models, api services
 
-4- Util-Common         : Utility library to handle all common services : Form Validations/Controls handling component cycle(onDestroy) etc
+**4- Util-Common**         : Utility library to handle all common services : Form Validations/Controls handling component cycle(onDestroy) etc
 
-5- Tailwind-Presets    : Contains all tailwild configurations, presets, themes and fonts
+**5- Tailwind-Presets**    : Contains all tailwild configurations, presets, themes and fonts
 
-6- Util-environments   : Utility library to contain environment configuration files for all projects
+**6- Util-environments**   : Utility library to contain environment configuration files for all projects
 
 
 
@@ -64,12 +64,17 @@ The application consists of the following applications/libraries :
 npm run test
 ```
 
-## 3rd Party Libraries used in the app :
+## Dependencies :
+
 
 1- nx.dev
+
 2- angular 17
+
 3- tailwindcss
+
 4- tailwindcss/form plugin
+
 5- jest
 
 

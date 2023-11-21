@@ -7,11 +7,14 @@
 
 
 ## ✨ ** [Check Live Demo](https://yousry2.github.io/operations/).✨ **
+<br>
 
-Please notice this demo is published on static github pages so in order to refresh the app please **Always** navigate the root page https://yousry2.github.io/operations and **DON'T** use the signup url https://yousry2.github.io/operations/auth/signup/
+> [!CAUTION]
+> Please notice this demo is published on static github pages so in order to refresh the app please **Always** navigate the root page https://yousry2.github.io/operations and **DON'T** use the signup url https://yousry2.github.io/operations/auth/signup/
 
+<br>
 
-
+<br>
 
 ## Run Application locally
 
@@ -30,6 +33,7 @@ npm i
 ```
 npm run start-fedex
 ```
+<br>
 
 ## App Architecture
 
@@ -55,7 +59,7 @@ The application consists of the following applications/libraries :
 
 **6- Util-environments**   : Utility library to contain environment configuration files for all projects
 
-
+<br>
 
 ## Running Tests
 
@@ -63,6 +67,7 @@ The application consists of the following applications/libraries :
 ```
 npm run test
 ```
+<br>
 
 ## Dependencies :
 

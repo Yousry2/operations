@@ -40,7 +40,7 @@ npm run start-fedex
 <img src="https://yousry2.github.io/operations/graph.jpg" width="800">
 
 
-Run the following command in repository root path and then navigate open your browser to http://127.0.0.1:4211/projects to check application dependencies and architecture
+Run the following command in repository root path and then navigate open your browser to http://127.0.0.1:4211/projects/all to check application dependencies and architecture
 ```
 nx graph
 ```

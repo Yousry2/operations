@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-     displayName: 'domain-fedex',
+     displayName: 'fedex-data-access',
      preset: '../../../jest.preset.js',
      setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-     coverageDirectory: '../../../coverage/libs/fedex-app/domain-fedex',
+     coverageDirectory: '../../../coverage/libs/fedex-app/fedex-data-access',
      transform: {
           '^.+\\.(ts|mjs|js|html)$': [
                'jest-preset-angular',

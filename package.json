@@ -3,7 +3,8 @@
      "version": "0.0.0",
      "license": "MIT",
      "scripts": {
-          "start-fedex": "nx run fedex:serve:development"
+          "start-fedex": "nx run fedex:serve:development",
+          "test": "nx run fedex-auth:test"
      },
      "private": true,
      "devDependencies": {

@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { APP_BASE_HREF, CommonModule, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import {
      FormControl,
@@ -43,6 +43,7 @@ export const PASSWORD_VALIDATORS = [
 })
 export class FedexSignupComponent {
      fedexAuthApiService = inject(FedexAuthApiService);
+     baseHref: string = inject(APP_BASE_HREF);
      formBuilder: NonNullableFormBuilder = inject(NonNullableFormBuilder);
      signUpForm: FormGroup<SignUpForm> = this.createSignUpForm();
      submitted = false;

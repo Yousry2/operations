@@ -48,6 +48,7 @@ export class FedexSignupComponent {
      submitted = false;
      isLoading = signal<boolean>(false);
      destroy$ = ondestroy$();
+     buttonText = signal<string>('Sign Up');
 
      createSignUpForm(): FormGroup {
           return this.formBuilder.group<SignUpForm>(
@@ -93,8 +94,8 @@ export class FedexSignupComponent {
                     })
                     .pipe(takeUntil(this.destroy$))
                     .subscribe({
-                         next: (userCreated) => console.debug(userCreated),
-                         error: (error) => console.log(error),
+                         next: () => this.buttonText.set('Sign Up - Success'),
+                         error: () => this.buttonText.set('Sign Up - Fail'),
                          complete: () => this.isLoading.set(false),
                     });
           }

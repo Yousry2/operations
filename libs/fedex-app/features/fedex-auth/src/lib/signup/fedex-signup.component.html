@@ -1,57 +1,47 @@
 <div class="mt-6">
      <div class="text-3xl font-bold leading-loose">
-          Hi, Welcome to <span class="text-purple-900 font-extrabold">Fed</span
-          ><span class="text-orange-600 font-extrabold">Ex</span>
+          Hi, Welcome to <span class="text-purple-900 font-extrabold">Fed</span><span
+                class="text-orange-600 font-extrabold">Ex</span>
      </div>
      <div class="text-base text-gray-500">Create your Fedex profile and track your shipping online.</div>
 </div>
-<form
-     [formGroup]="signUpForm"
-     (ngSubmit)="submitForm()"
->
+<form [formGroup]="signUpForm"
+      (ngSubmit)="submitForm()">
      <div class="my-4">
           <div class="mt-4">
                <div class="flex justify-between space-x-7">
                     <label for="email">Email Address</label>
                     @if (f.email.invalid && (f.email.touched || submitted)) {
-                    <span
-                         class="text-red-500"
-                         test-id="fedex-auth-signup-email-input-notValid"
-                         >@if (f.email.errors?.required) { Email is Required } @else if (f.email.errors?.email) { Please
+                    <span class="text-red-500"
+                          test-id="fedex-auth-signup-email-input-invalid">@if (f.email.errors?.required) { Email is
+                         Required } @else if (f.email.errors?.email) { Please
                          Enter a valid email }
                     </span>
                     }
                </div>
                <div
-                    class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-500"
-               >
+                    class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-500">
                     <div class="pl-4 flex justify-center items-center">
-                         <img
-                              src="{{ baseHref }}assets/fedex-auth/icons/email.svg"
+                         <img src="{{ baseHref }}assets/fedex-auth/icons/email.svg"
                               alt="email"
-                              class="w-6 h-6 pointer-events-none"
-                         />
+                              class="w-6 h-6 pointer-events-none" />
                     </div>
 
-                    <input
-                         type="text"
-                         test-id="fedex-auth-signup-email-input"
-                         [formControl]="f.email"
-                         name="email"
-                         id="email"
-                         placeholder="Enter your email address"
-                         class="px-4 py-4 w-full bg-transparent placeholder-gray-500 leading-3 focus:outline-none font-light border-0 focus:ring-0"
-                    />
+                    <input type="text"
+                           test-id="fedex-auth-signup-email-input"
+                           [formControl]="f.email"
+                           name="email"
+                           id="email"
+                           placeholder="Enter your email address"
+                           class="px-4 py-4 w-full bg-transparent placeholder-gray-500 leading-3 focus:outline-none font-light border-0 focus:ring-0" />
                </div>
           </div>
           <div class="mt-4">
                <div class="flex justify-between space-x-8">
                     <label for="password">Password</label>
                     @if (f.password.invalid && (f.password.touched || submitted)) {
-                    <span
-                         class="text-red-500 text-right"
-                         test-id="fedex-auth-signup-password-input-notValid"
-                    >
+                    <span class="text-red-500 text-right"
+                          test-id="fedex-auth-signup-password-input-invalid">
                          @if (f.password.errors?.required) { Password is Required } @else if (submitted &&
                          (f.password.errors?.pattern || f.password.errors?.minlength)) { Password has to be at least 8
                          characters and contains upper and lower case } @else if (submitted &&
@@ -60,74 +50,60 @@
                     }
                </div>
                <div
-                    class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-500"
-               >
+                    class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-500">
                     <div class="pl-4 flex justify-center items-center">
-                         <img
-                              src="{{ baseHref }}assets/fedex-auth/icons/lock.svg"
+                         <img src="{{ baseHref }}assets/fedex-auth/icons/lock.svg"
                               alt="password"
-                              class="w-6 h-6 pointer-events-none"
-                         />
+                              class="w-6 h-6 pointer-events-none" />
                     </div>
 
-                    <input
-                         type="password"
-                         test-id="fedex-auth-signup-password-input"
-                         [formControl]="f.password"
-                         name="password"
-                         id="password"
-                         placeholder="Enter your password"
-                         class="px-4 py-4 w-full bg-transparent placeholder-gray-500 leading-3 focus:outline-none font-light border-0 focus:ring-0"
-                    />
+                    <input type="password"
+                           test-id="fedex-auth-signup-password-input"
+                           [formControl]="f.password"
+                           name="password"
+                           id="password"
+                           placeholder="Enter your password"
+                           class="px-4 py-4 w-full bg-transparent placeholder-gray-500 leading-3 focus:outline-none font-light border-0 focus:ring-0" />
                </div>
           </div>
      </div>
      <div class="my-6">
           <div class="flex justify-between items-center">
                <hr class="w-full border-gray-400" />
-               <span class="px-4 font-light tracking-wider text-sm text-gray-500 whitespace-nowrap"
-                    >Personal Information</span
-               >
+               <span class="px-4 font-light tracking-wider text-sm text-gray-500 whitespace-nowrap">Personal
+                    Information</span>
 
                <hr class="w-full border-gray-400" />
           </div>
           <div
-               class="flex max-md:flex-col max-md:space-y-4 max-md:space-x-0 space-x-8 mt-4 justify-between items-stretch"
-          >
+               class="flex max-md:flex-col max-md:space-y-4 max-md:space-x-0 space-x-8 mt-4 justify-between items-stretch">
                <span>
                     <div class="flex justify-between space-x-8">
                          <label for="firstName">First Name</label>
 
                          @if((submitted || f.firstName.touched ) && f.firstName.errors?.required) {
-                         <span
-                              class="text-red-500 text-right"
-                              test-id="fedex-auth-signup-firstName-input-required"
-                         >
+                         <span class="text-red-500 text-right"
+                               test-id="fedex-auth-signup-firstName-input-required">
                               Required
                          </span>
                          }
                     </div>
                     <div
-                         class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-300"
-                    >
+                         class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-300">
                          <div class="pl-4 flex justify-center items-center">
-                              <img
-                                   src="{{ baseHref }}assets/fedex-auth/icons/user.svg"
+                              <img src="{{ baseHref }}assets/fedex-auth/icons/user.svg"
                                    alt="user"
-                                   class="w-6 h-6 pointer-events-none"
-                              />
+                                   class="w-6 h-6 pointer-events-none" />
                          </div>
 
-                         <input
-                              type="firstName"
-                              value="test"
-                              test-id="fedex-auth-signup-firstName-input"
-                              [formControl]="f.firstName"
-                              name="firstName"
-                              id="firstName"
-                              placeholder="Enter your name"
-                              class="px-4 py-4 w-full bg-transparent placeholder:text-sm placeholder-gray-500 leading-3 focus:outline-none font-light border-0 focus:ring-0"
-                         />
+                         <input type="firstName"
+                                value="test"
+                                test-id="fedex-auth-signup-firstName-input"
+                                [formControl]="f.firstName"
+                                name="firstName"
+                                id="firstName"
+                                placeholder="Enter your name"
+                                class="px-4 py-4 w-full bg-transparent placeholder:text-sm placeholder-gray-500 leading-3 focus:outline-none font-light border-0 focus:ring-0" />
                     </div>
                </span>
 
@@ -136,33 +112,25 @@
                          <label for="lastName">Last Name</label>
 
                          @if (( submitted || f.lastName.touched) && f.lastName.errors?.required) {
-                         <span
-                              class="text-red-500 text-right"
-                              test-id="fedex-auth-signup-lastName-input-required"
-                         >
-                              Required </span
-                         >}
+                         <span class="text-red-500 text-right"
+                               test-id="fedex-auth-signup-lastName-input-required">
+                              Required </span>}
                     </div>
                     <div
-                         class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-500"
-                    >
+                         class="flex items-center mt-2 w-full rounded-lg border border-gray-400 transition-all duration-300 focus-within:shadow-xl focus-within:border-purple-500">
                          <div class="pl-4 flex justify-center items-center">
-                              <img
-                                   src="{{ baseHref }}assets/fedex-auth/icons/user.svg"
+                              <img src="{{ baseHref }}assets/fedex-auth/icons/user.svg"
                                    alt="user"
-                                   class="w-6 h-6 pointer-events-none"
-                              />
+                                   class="w-6 h-6 pointer-events-none" />
                          </div>
 
-                         <input
-                              type="lastName"
-                              [formControl]="f.lastName"
-                              test-id="fedex-auth-signup-lastName-input"
-                              name="lastName"
-                              id="lastName"
-                              placeholder="Enter your name"
-                              class="px-4 py-4 w-full bg-transparent placeholder:text-sm placeholder-gray-500 leading-3 focus:outline-none font-light border-0 focus:ring-0"
-                         />
+                         <input type="lastName"
+                                [formControl]="f.lastName"
+                                test-id="fedex-auth-signup-lastName-input"
+                                name="lastName"
+                                id="lastName"
+                                placeholder="Enter your name"
+                                class="px-4 py-4 w-full bg-transparent placeholder:text-sm placeholder-gray-500 leading-3 focus:outline-none font-light border-0 focus:ring-0" />
                     </div>
                </span>
           </div>
@@ -172,40 +140,31 @@
           <span class="text-red-500"> </span>
           <div class="flex justify-between items-center">
                <div class="flex items-center">
-                    <input
-                         type="checkbox"
-                         test-id="fedex-auth-signup-termsAndConditions-input"
-                         [formControl]="f.termsAndConditions"
-                         class="w-5 h-5 rounded bg-white text-purple-500 border border-gray-400 focus:outline-none focus:ring-purple-300"
-                         [ngClass]="{
+                    <input type="checkbox"
+                           test-id="fedex-auth-signup-termsAndConditions-input"
+                           [formControl]="f.termsAndConditions"
+                           class="w-5 h-5 rounded bg-white text-purple-500 border border-gray-400 focus:outline-none focus:ring-purple-300"
+                           [ngClass]="{
                               'ring-offset-2 ring- ring-opacity-50 ring ring-red-400 ':
                                    (submitted || f.termsAndConditions.touched) && f.termsAndConditions.value === false
                          }"
-                         name="termsAndConditions"
-                         id="termsAndConditions"
-                    />
-                    <label
-                         for="termsAndConditions"
-                         class="pl-4 text-sm font-light text-gray-900"
-                    >
+                           name="termsAndConditions"
+                           id="termsAndConditions" />
+                    <label for="termsAndConditions"
+                           class="pl-4 text-sm font-light text-gray-900">
                          I agree to the terms conditions for Fedex
                     </label>
                </div>
 
-               <a
-                    href="#"
-                    class="text-sm text-orange-600 hover:text-orange-300"
-                    >Terms and conditions</a
-               >
+               <a href="#"
+                  class="text-sm text-orange-600 hover:text-orange-300">Terms and conditions</a>
           </div>
      </div>
      <div class="my-4">
-          <button
-               type="submit"
-               [disabled]="isLoading()"
-               test-id="fedex-auth-signup-submit-button"
-               class="py-4 px-8 w-full text-white bg-orange-500 rounded-lg shadow-lg disabled:opacity-50 opacity-90 hover:opacity-100 focus:ring-8 focus:ring-red-100 focus:outline-none"
-          >
+          <button type="submit"
+                  [disabled]="isLoading()"
+                  test-id="fedex-auth-signup-submit-button"
+                  class="py-4 px-8 w-full text-white bg-orange-500 rounded-lg shadow-lg disabled:opacity-50 opacity-90 hover:opacity-100 focus:ring-8 focus:ring-red-100 focus:outline-none">
                {{ buttonText() }}
           </button>
      </div>

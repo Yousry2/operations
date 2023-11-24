@@ -88,11 +88,13 @@ export class FedexSignupComponent {
           if (this.signUpForm.valid) {
                this.isLoading.set(true);
                this.fedexAuthApiService
-                    .signup({
+                    .signup(
+                         {
                          firstName: this.signUpForm.value.firstName!,
                          lastName: this.signUpForm.value.lastName!,
                          email: this.signUpForm.value.email!,
-                    })
+                    }
+                    )
                     .pipe(takeUntil(this.destroy$))
                     .subscribe({
                          next: () => this.buttonText.set('Sign Up - Success'),

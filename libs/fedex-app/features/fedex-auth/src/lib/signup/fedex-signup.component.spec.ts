@@ -31,11 +31,11 @@ const lastName_input_required = (fixture: ComponentFixture<FedexSignupComponent>
      return getElement(fixture, 'lastName-input-required');
 };
 
-const password_input_notValid = (fixture: ComponentFixture<FedexSignupComponent>) => {
-     return getElement(fixture, 'password-input-notValid');
+const password_input_invalid = (fixture: ComponentFixture<FedexSignupComponent>) => {
+     return getElement(fixture, 'password-input-invalid');
 };
-const email_input_notValid = (fixture: ComponentFixture<FedexSignupComponent>) => {
-     return getElement(fixture, 'email-input-notValid');
+const email_input_invalid = (fixture: ComponentFixture<FedexSignupComponent>) => {
+     return getElement(fixture, 'email-input-invalid');
 };
 
 const submit_button = (fixture: ComponentFixture<FedexSignupComponent>) => {
@@ -85,8 +85,8 @@ describe('FedexSignupComponent', () => {
           expect(termsAndConditions).toBeTruthy();
           expect(firstName_input_required(fixture)).toBeFalsy();
           expect(lastName_input_required(fixture)).toBeFalsy();
-          expect(password_input_notValid(fixture)).toBeFalsy();
-          expect(email_input_notValid(fixture)).toBeFalsy();
+          expect(password_input_invalid(fixture)).toBeFalsy();
+          expect(email_input_invalid(fixture)).toBeFalsy();
      });
 
      it('should all signup form fields marked as required if submitted without filling ', () => {
@@ -94,69 +94,69 @@ describe('FedexSignupComponent', () => {
           fixture.detectChanges();
           expect(firstName_input_required(fixture)).toBeTruthy();
           expect(lastName_input_required(fixture)).toBeTruthy();
-          expect(password_input_notValid(fixture)).toBeTruthy();
-          expect(email_input_notValid(fixture)).toBeTruthy();
+          expect(password_input_invalid(fixture)).toBeTruthy();
+          expect(email_input_invalid(fixture)).toBeTruthy();
      });
      it('should make sure email entered is correct ', () => {
-          expect(email_input_notValid(fixture)).toBeFalsy();
+          expect(email_input_invalid(fixture)).toBeFalsy();
 
           email.nativeElement.dispatchEvent(new Event('input'));
           submitButton.nativeElement.click();
           fixture.detectChanges();
           email.nativeElement.value = 'test';
 
-          expect(email_input_notValid(fixture)).toBeTruthy();
+          expect(email_input_invalid(fixture)).toBeTruthy();
 
           email.nativeElement.value = '123';
           email.nativeElement.dispatchEvent(new Event('input'));
           submitButton.nativeElement.click();
           fixture.detectChanges();
-          expect(email_input_notValid(fixture)).toBeTruthy();
+          expect(email_input_invalid(fixture)).toBeTruthy();
 
           email.nativeElement.value = 'test@';
           email.nativeElement.dispatchEvent(new Event('input'));
           submitButton.nativeElement.click();
           fixture.detectChanges();
-          expect(email_input_notValid(fixture)).toBeTruthy();
+          expect(email_input_invalid(fixture)).toBeTruthy();
 
           email.nativeElement.value = 'mohamed@fedex.com';
 
           email.nativeElement.dispatchEvent(new Event('input'));
           submitButton.nativeElement.click();
           fixture.detectChanges();
-          expect(email_input_notValid(fixture)).toBeFalsy();
+          expect(email_input_invalid(fixture)).toBeFalsy();
      });
 
      it('should make sure password entered is correct ', () => {
-          expect(password_input_notValid(fixture)).toBeFalsy();
+          expect(password_input_invalid(fixture)).toBeFalsy();
 
           password.nativeElement.value = 'test';
 
           password.nativeElement.dispatchEvent(new Event('input'));
           submitButton.nativeElement.click();
           fixture.detectChanges();
-          expect(password_input_notValid(fixture)).toBeTruthy();
+          expect(password_input_invalid(fixture)).toBeTruthy();
 
           password.nativeElement.value = 'test123456';
 
           password.nativeElement.dispatchEvent(new Event('input'));
           submitButton.nativeElement.click();
           fixture.detectChanges();
-          expect(password_input_notValid(fixture)).toBeTruthy();
+          expect(password_input_invalid(fixture)).toBeTruthy();
 
           password.nativeElement.value = 'testT12345';
 
           password.nativeElement.dispatchEvent(new Event('input'));
           submitButton.nativeElement.click();
           fixture.detectChanges();
-          expect(password_input_notValid(fixture)).toBeFalsy();
+          expect(password_input_invalid(fixture)).toBeFalsy();
 
           password.nativeElement.value = 'Test12345';
 
           password.nativeElement.dispatchEvent(new Event('input'));
           submitButton.nativeElement.click();
           fixture.detectChanges();
-          expect(password_input_notValid(fixture)).toBeFalsy();
+          expect(password_input_invalid(fixture)).toBeFalsy();
      });
 
      it('should submit signup form correctly', (): void => {

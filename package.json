@@ -4,7 +4,8 @@
      "license": "MIT",
      "scripts": {
           "start-fedex": "nx run fedex:serve:development",
-          "test": "nx run fedex-auth:test"
+          "test-fedex": "nx run fedex-auth:test",
+          "e2e-fedex": "nx e2e fedex-e2e "
      },
      "private": true,
      "devDependencies": {

@@ -1,4 +1,4 @@
- Fedex / SignUp App
+# Fedex / SignUp App #
 
 
 <a alt="Fedex logo" href="https://yousry2.github.io/operations" target="_blank" rel="noreferrer"><img src="https://yousry2.github.io/operations/screenshot.jpg" width="800"></a>
@@ -10,9 +10,16 @@
 <br>
 
 > [!CAUTION]
-> Please notice this demo is published on static github pages so in order to refresh the app please **Always** navigate the root page https://yousry2.github.io/operations and **DON'T** use the signup url https://yousry2.github.io/operations/auth/signup/
+> Please note this demo is published on static github pages so in order to refresh the app please **Always** navigate back to the root page https://yousry2.github.io/operations and **DON'T** use the signup url https://yousry2.github.io/operations/auth/signup/ **OR** the refresh button
 
 <br>
+
+## Tasks to be completed ## 
+1- E2E tests using playwright using several device sizes
+
+2- Add more validation rules like min,max length and whitespace validators to all input fields
+
+3-  [done] ~~Add responsive design for mobile and tablet screens~~
 
 <br>
 
@@ -20,7 +27,7 @@
 
 1- Make sure you have the latest npm installed in your machine  [Download NPM ](https://nodejs.org/en/download).
 
-2- Clone the application repository in your machine and navigate to the repository root file path 
+2- Clone the application repository in your machine and using your operating system termminal navigate to the repository root file path 
 
 3- Install app libraries using npm
 
@@ -62,6 +69,8 @@ The application consists of the following applications/libraries :
 <br>
 
 ## Running Tests
+
+We are using jest to run test cases in the signup page 
 
 
 ```

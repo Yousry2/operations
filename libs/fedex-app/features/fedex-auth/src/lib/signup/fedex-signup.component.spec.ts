@@ -3,6 +3,7 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FedexSignupComponent } from './fedex-signup.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 const getElement = (fixture: ComponentFixture<FedexSignupComponent>, elementTestId: string) => {
      return fixture.debugElement.query(By.css(`[test-id="fedex-auth-signup-${elementTestId}"]`));
@@ -56,6 +57,7 @@ describe('FedexSignupComponent', () => {
 
      beforeEach(async () => {
           await TestBed.configureTestingModule({
+               providers: [{ provide: APP_BASE_HREF, useValue: '', multi: true }],
                imports: [FedexSignupComponent, HttpClientTestingModule],
           }).compileComponents();
 

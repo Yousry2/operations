@@ -8,14 +8,14 @@ import {
      ReactiveFormsModule,
      Validators,
 } from '@angular/forms';
-import { FedexAuthApiService, UserSignup } from '@operations/fedex-data-access';
+import { FedexAuthApiService, UserSignupDTO } from '@operations/fedex-data-access';
 import { FormGroupType, ondestroy$, doesNotContain, updateAndRevalidate } from '@operations/util-common';
 import { takeUntil } from 'rxjs';
 
 /**
- * SignUpForm is a type that defines the main form attributes included in the signup form
+ * SignUpFormData is a type that defines the main form attributes included in the signup form
  */
-export type SignUpFormData = UserSignup & { password: string; termsAndConditions: boolean };
+export type SignUpFormData = UserSignupDTO & { password: string; termsAndConditions: boolean };
 
 /**
  * SignUpForm is a type that defines the form controls included in the signup form
@@ -88,13 +88,11 @@ export class FedexSignupComponent {
           if (this.signUpForm.valid) {
                this.isLoading.set(true);
                this.fedexAuthApiService
-                    .signup(
-                         {
+                    .signup({
                          firstName: this.signUpForm.value.firstName!,
                          lastName: this.signUpForm.value.lastName!,
                          email: this.signUpForm.value.email!,
-                    }
-                    )
+                    })
                     .pipe(takeUntil(this.destroy$))
                     .subscribe({
                          next: () => this.buttonText.set('Sign Up - Success'),

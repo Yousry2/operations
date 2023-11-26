@@ -15,11 +15,11 @@
 <br>
 
 ## Tasks to be completed ## 
-1- E2E tests using playwright using several device sizes
+1- [Done] ~~E2E tests using playwright using several device sizes~~
 
 2- Add more validation rules like min,max length and whitespace validators to all input fields
 
-3-  [done] ~~Add responsive design for mobile and tablet screens~~
+3-  [Done] ~~Add responsive design for mobile and tablet screens~~
 
 <br>
 
@@ -68,20 +68,35 @@ The application consists of the following applications/libraries :
 
 <br>
 
-## Running Tests
+## Tests
 
-We are using jest to run test cases in the signup page 
+### 1- E2E Testing (Playwright) : 
 
+Check the latest e2e report on this link https://yousry2.github.io/operations/playwright-report.html
+
+In e2e testing We check the following :
+
+1- Basic page workflow 
+
+2- Happy scenario with successful submission
+
+3- Accessiblity using keyboard
+
+4- Responsivness on several screens
+
+### 2- Unit Testing (Jest) :  
+
+In Unit Testing we fouces more on sign up validation cases and the submission scenario with the api calls
 
 ```
-npm run test
+npm run test-fedex
 ```
 <br>
 
 ## Dependencies :
 
 
-1- nx.dev
+1- nx monorepo 17
 
 2- angular 17
 
@@ -90,3 +105,5 @@ npm run test
 4- tailwindcss/form plugin
 
 5- jest
+
+6- playwright

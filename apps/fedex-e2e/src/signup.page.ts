@@ -1,3 +1,5 @@
+const BASE_URL = 'https://yousry2.github.io/operations/';
+
 export class SignUpPage {
      pageId = 'fedex-auth-signup';
      constructor(private page) {
@@ -5,8 +7,8 @@ export class SignUpPage {
      }
 
      async navigateToSignUpPage() {
-          await this.page.goto('https://yousry2.github.io/operations/');
-          await this.page.waitForURL('https://yousry2.github.io/operations/auth/signup');
+          await this.page.goto(BASE_URL);
+          await this.page.waitForURL('**/auth/signup');
      }
 
      emailInput() {

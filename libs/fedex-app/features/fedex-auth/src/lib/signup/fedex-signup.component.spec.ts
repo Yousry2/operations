@@ -4,6 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FedexSignupComponent } from './fedex-signup.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { provideLocationMocks } from '@angular/common/testing';
 
 const getElement = (fixture: ComponentFixture<FedexSignupComponent>, elementTestId: string) => {
      return fixture.debugElement.query(By.css(`[test-id="fedex-auth-signup-${elementTestId}"]`));
@@ -57,7 +58,7 @@ describe('FedexSignupComponent', () => {
 
      beforeEach(async () => {
           await TestBed.configureTestingModule({
-               providers: [{ provide: APP_BASE_HREF, useValue: '', multi: true }],
+               providers: [{ provide: APP_BASE_HREF, useValue: '', multi: true }, provideLocationMocks()],
                imports: [FedexSignupComponent, HttpClientTestingModule],
           }).compileComponents();
 
@@ -177,10 +178,9 @@ describe('FedexSignupComponent', () => {
           const req = httpTestingController.expectOne('https://demo-api.vercel.app/users');
           expect(req.request.method).toEqual('POST');
           expect(req.request.body).toEqual({ user: { firstName: 'test', lastName: 'test', email: 'test@test.com' } });
-          req.flush({});
      });
 
      afterEach(() => {
-          httpTestingController.verify();
+          httpTestingController?.verify();
      });
 });

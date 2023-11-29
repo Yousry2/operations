@@ -3,5 +3,5 @@
      "printWidth": 120,
      "tabWidth": 5,
      "singleAttributePerLine": true,
-     "bracket-same-line": true
+     "bracketSameLine": true
 }

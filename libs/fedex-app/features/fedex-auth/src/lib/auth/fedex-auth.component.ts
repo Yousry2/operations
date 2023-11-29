@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FedexAuthApiService } from '@operations/fedex-data-access';
-import { getBaseHref } from '../../../../../../shared/util-common/src';
+import { getBaseHref } from '@operations/util-common';
 import { Inject } from '@angular/core';
 
 @Component({

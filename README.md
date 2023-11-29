@@ -1,7 +1,7 @@
 # Fedex / SignUp App #
 
 
-<a alt="Fedex logo" href="https://yousry2.github.io/operations" target="_blank" rel="noreferrer"><img src="https://yousry2.github.io/operations/screenshot.jpg" width="800"></a>
+<a alt="Fedex logo" href="https://yousry2.github.io/operations" target="_blank" rel="noreferrer"><img src="https://yousry2.github.io/operations/static/screenshot.jpg" width="800"></a>
 
 
 
@@ -20,6 +20,10 @@
 2- Add more validation rules like min,max length and whitespace validators to all input fields
 
 3-  [Done] ~~Add responsive design for mobile and tablet screens~~
+
+4-  [Done]  ~~Add Support for View Transition API~~
+
+5-  [Done]  ~~Use new angular 17 features : Control Flow and Signal~~ 
 
 <br>
 
@@ -44,7 +48,7 @@ npm run start-fedex
 
 ## App Architecture
 
-<img src="https://yousry2.github.io/operations/graph.jpg" width="800">
+<img src="https://yousry2.github.io/operations/static/graph.jpg" width="800">
 
 
 Run the following command in repository root path and then navigate open your browser to http://127.0.0.1:4211/projects/all to check application dependencies and architecture
@@ -72,7 +76,7 @@ The application consists of the following applications/libraries :
 
 ### 1- E2E Testing (Playwright) : 
 
-Check the latest e2e report on this link https://yousry2.github.io/operations/playwright-report.html
+Check the latest e2e report on this link https://yousry2.github.io/operations/static/playwright-report.html
 
 In e2e testing We check the following :
 

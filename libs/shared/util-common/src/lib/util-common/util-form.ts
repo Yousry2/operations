@@ -21,7 +21,7 @@ export function doesNotContain<T>(matchTo: (keyof T)[], error: ValidationErrors)
                          control.parent?.get(matchToElement as string)?.value.length === 0 ||
                          !control.value
                               .toLowerCase()
-                              .includes(control.parent?.get(matchToElement as string)?.value.toLowerCase())
+                              .includes(control.parent?.get(matchToElement as string)?.value.toLowerCase()),
                );
           return valid ? null : error;
      };
@@ -38,7 +38,7 @@ export function doesNotContain<T>(matchTo: (keyof T)[], error: ValidationErrors)
 export function updateAndRevalidate<T>(
      formElements: (keyof T)[],
      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-     error: ValidationErrors
+     error: ValidationErrors,
 ): ValidatorFn {
      // eslint-disable-next-line @typescript-eslint/no-explicit-any
      return (control: AbstractControl<string>): { [key: string]: any } | null => {

@@ -8,6 +8,7 @@ import {
      ReactiveFormsModule,
      Validators,
 } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 import { FedexAuthApiService, UserSignupDTO } from '@operations/fedex-data-access';
 import { FormGroupType, ondestroy$, doesNotContain, updateAndRevalidate } from '@operations/util-common';
 import { takeUntil } from 'rxjs';
@@ -36,7 +37,7 @@ export const PASSWORD_VALIDATORS = [
 @Component({
      selector: 'operations-fedex-signup',
      standalone: true,
-     imports: [CommonModule, NgOptimizedImage, ReactiveFormsModule, FormsModule],
+     imports: [CommonModule, NgOptimizedImage, ReactiveFormsModule, FormsModule, RouterModule],
      templateUrl: './fedex-signup.component.html',
      styleUrls: ['./fedex-signup.component.scss'],
      changeDetection: ChangeDetectionStrategy.OnPush,
@@ -44,6 +45,7 @@ export const PASSWORD_VALIDATORS = [
 export class FedexSignupComponent {
      fedexAuthApiService = inject(FedexAuthApiService);
      baseHref: string = inject(APP_BASE_HREF);
+     router: Router = inject(Router);
      formBuilder: NonNullableFormBuilder = inject(NonNullableFormBuilder);
      signUpForm: FormGroup<SignUpForm> = this.createSignUpForm();
      submitted = false;
@@ -74,7 +76,7 @@ export class FedexSignupComponent {
                          validators: [Validators.requiredTrue],
                          nonNullable: true,
                     }),
-               }
+               },
                /*
                another way to validate multiple fields in the form , but less control over when we trigger the validation
                { validators: [passwordIncludesName], updateOn: 'submit' },
@@ -95,7 +97,10 @@ export class FedexSignupComponent {
                     })
                     .pipe(takeUntil(this.destroy$))
                     .subscribe({
-                         next: () => this.buttonText.set('Sign Up - Success'),
+                         next: () => {
+                              this.buttonText.set('Sign Up - Success');
+                              this.router.navigate(['auth', 'success']);
+                         },
                          error: () => this.buttonText.set('Sign Up - Fail'),
                          complete: () => this.isLoading.set(false),
                     });

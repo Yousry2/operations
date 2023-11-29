@@ -15,8 +15,10 @@ test.describe('SignUp Page', () => {
           await signUpPage.enterLastName('test2');
           await signUpPage.clickTermsAndConditions();
           await signUpPage.clickSubmitButton();
+          await page.waitForURL('**/auth/success');
           await page.waitForSelector('text=success');
-          expect(await signUpPage.submitButton().innerText()).toContain('Success');
+          const element = page.getByText('Success');
+          await expect(element).toBeVisible();
      });
 
      test('Signup test @accessiblity', async ({ page }) => {
@@ -33,8 +35,10 @@ test.describe('SignUp Page', () => {
           await page.keyboard.press('Tab');
           await page.keyboard.press('Tab');
           await page.keyboard.press('Enter');
+          await page.waitForURL('**/auth/success');
           await page.waitForSelector('text=success');
-          expect(await signUpPage.submitButton().innerText()).toContain('Success');
+          const element = page.getByText('Success');
+          await expect(element).toBeVisible();
      });
 
      test('signup all fields are required  @validation', async ({ page }) => {
